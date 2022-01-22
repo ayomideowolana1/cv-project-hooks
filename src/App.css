@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+body{
+  margin: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#form {
+  border: 1px solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav {
+  margin: 0px;
+  padding: 10px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  max-height: 10vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid;
+}
+
+.section h2 {
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+.section hr {
+  margin: 0px;
+  margin-bottom: 15px;
+}
+
+.section .inputs {
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.section .inputs input {
+  padding: 10px;
+}
+
+.section .inputs textarea {
+  padding: 10px;
+}
+
+.section .buttons {
+  padding: 10px;
+}
+.section .buttons button {
+  padding: 5px;
+  border: 1px solid #424242;
+  margin-right: 10px;
+}
+
+select {
+  padding: 10px;
+}
+
+option {
+  padding: 10px;
+}
+
+button {
+  padding: 5px;
+  border: 1px solid #424242;
+  margin-right: 10px;
+}
+
+.template-header{ 
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  border: 1px solid;
+  background-color: rgb(23, 46, 90);
+  color: white ;
 }
 
-.App-link {
-  color: #61dafb;
+.template-header h2{
+  margin: 10px;
+}
+.template-header p{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.summaryPhoto>div{
+  padding: 10px;
+  border-bottom: 1px solid #424242;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summaryPhoto p{
+  margin: 0px;
+}
+.summaryPhoto .photoCrop{
+  width: 150px;
+  height: 150px;
+  border-radius:50% ;
+  background-color: rgb(238, 234, 234);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.details >div{
+  padding: 10px;
+}
+
+.details .right{
+  border-left:1px solid ;
 }
