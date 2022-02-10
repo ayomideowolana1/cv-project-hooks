@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import uniqid from "uniqid";
 
 export default function CertificationForm({
   updateCertificationList,
