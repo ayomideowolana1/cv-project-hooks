@@ -1,18 +1,50 @@
-body{
+:root {
+  --imperial-red: #e63946;
+  --royal-blue-dark: #17255a;
+  --honeydew: #f1faee;
+  --persian-green: #17a398;
+}
+
+body {
   margin: 0px;
+  background-color: var(--imperial-red);
 }
 
 #form {
-  border: 1px solid;
+  max-height: 90vh;
+}
+
+.form-nav {
+  margin: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+button.update:hover{
+  background-color: var(--persian-green);
+  color:white
+}
+button.delete:hover{
+  background-color: var(--imperial-red);
+  color:white
 }
 
 .nav {
   margin: 0px;
-  padding: 10px;
-  border: 1px solid;
+  padding: 20px;
   display: flex;
   justify-content: center;
   max-height: 10vh;
+  background-color: var(--royal-blue-dark);
+  color: white;
+}
+
+.nav h1{
+  font-weight: 800;
 }
 
 .section {
@@ -63,26 +95,20 @@ option {
   padding: 10px;
 }
 
-button {
-  padding: 5px;
-  border: 1px solid #424242;
-  margin-right: 10px;
-}
-
-.template-header{ 
+.template-header {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   border: 1px solid;
   background-color: rgb(23, 46, 90);
-  color: white ;
+  color: white;
 }
 
-.template-header h2{
+.template-header h2 {
   margin: 10px;
 }
-.template-header p{
+.template-header p {
   display: flex;
   gap: 15px;
   justify-content: center;
@@ -90,9 +116,7 @@ button {
   font-size: 14px;
 }
 
-
-
-.summaryPhoto>div{
+.summaryPhoto > div {
   padding: 10px;
   border-bottom: 1px solid #424242;
   display: flex;
@@ -100,13 +124,13 @@ button {
   align-items: center;
 }
 
-.summaryPhoto p{
+.summaryPhoto p {
   margin: 0px;
 }
-.summaryPhoto .photoCrop{
+.summaryPhoto .photoCrop {
   width: 150px;
   height: 150px;
-  border-radius:50% ;
+  border-radius: 50%;
   background-color: rgb(238, 234, 234);
   display: flex;
   justify-content: center;
@@ -114,10 +138,10 @@ button {
   overflow: hidden;
 }
 
-.details >div{
+.details > div {
   padding: 10px;
 }
 
-.details .right{
-  border-left:1px solid ;
+.details .right {
+  border-left: 1px solid;
 }
