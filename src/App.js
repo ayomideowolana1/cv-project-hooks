@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "./components/form";
 import Nav from "./components/nav";
 import Template from "./components/templates";
+import FormRouter from "./components/formRouter";
 
 function App() {
   const [names, setNames] = useState({
