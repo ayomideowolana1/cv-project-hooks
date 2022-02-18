@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectPicture } from "./picture/pictureSlice";
 import uniqid from "uniqid";
+import store from "../store/store";
 
 export default function Template({
   names,
   contact,
   summary,
-  picture,
   skills,
   certification,
   experiences,
   education,
-  languages,
+  languages
 }) {
+  const {picture} = store.getState()
   return (
     <div className="col-lg-6 section">
       <div className="container-fluid template">
@@ -27,11 +30,13 @@ export default function Template({
         </div>
         <div className="row summaryPhoto">
           <div className="col-6">
-            <p>{summary}</p>
+            <p>
+              {summary}
+            </p>
           </div>
           <div className="col-6">
             <div className="photoCrop">
-              <img src={picture} />
+              <img src={picture.url} />
             </div>
           </div>
         </div>
@@ -39,7 +44,7 @@ export default function Template({
           <div className="col-6">
             <div>
               <h3>Experiences</h3>
-              {experiences.map((i) => {
+              {experiences.map(i => {
                 return (
                   <div key={uniqid()}>
                     <p>
@@ -55,8 +60,12 @@ export default function Template({
             <div>
               <h3>Languages</h3>
               <ul>
-                {languages.map((i) => {
-                  return <li key={uniqid()}>{i}</li>;
+                {languages.map(i => {
+                  return (
+                    <li key={uniqid()}>
+                      {i}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
@@ -65,14 +74,18 @@ export default function Template({
             <div>
               <h3>Skills</h3>
               <ul>
-                {skills.map((i) => {
-                  return <li key={i.id}>{i.text}</li>;
+                {skills.map(i => {
+                  return (
+                    <li key={i.id}>
+                      {i.text}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
             <div>
               <h3>Certification</h3>
-              {certification.map((i) => {
+              {certification.map(i => {
                 return (
                   <div key={uniqid()}>
                     <p>
@@ -84,7 +97,7 @@ export default function Template({
             </div>
             <div>
               <h3>Education</h3>
-              {education.map((i) => {
+              {education.map(i => {
                 return (
                   <div key={uniqid()}>
                     <p>

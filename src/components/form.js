@@ -6,7 +6,7 @@ import Names from "./names";
 import Skills from "./skills";
 import Summary from "./summary";
 import Certification from "./cetification";
-import Picture from "./picture";
+import Picture from "./picture/picture";
 import Languages from "./languages";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
