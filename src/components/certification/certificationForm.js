@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
-
-export default function CertificationForm({
-  updateCertificationList,
-  id,
-  deleteCertification,
-}) {
+import { useDispatch } from "react-redux";
+import { deleteCertification, updateCertification } from "./certificationSlice";
+export default function CertificationForm({ id }) {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [disabled, setDisabled] = useState(true);
+
   useEffect(() => {
     title && date ? setDisabled(false) : setDisabled(true);
   });
 
   const handleDelete = () => {
-    deleteCertification(id);
+    dispatch(deleteCertification(id));
+  };
+
+  const handleUpdate = () => {
+    dispatch(updateCertification({id,title,date}))
   };
 
   return (
@@ -22,24 +25,19 @@ export default function CertificationForm({
         <input
           type="text"
           placeholder="Certification Title"
-          onChange={(e) => {
+          onChange={e => {
             setTitle(e.target.value);
           }}
         />
         <input
           type="date"
-          onChange={(e) => {
+          onChange={e => {
             setDate(e.target.value);
           }}
         />
       </div>
       <div className="buttons">
-        <button
-          disabled={disabled}
-          onClick={() => {
-            updateCertificationList({ title, id, date });
-          }}
-        >
+        <button disabled={disabled} onClick={handleUpdate}>
           Update
         </button>
         <button onClick={handleDelete}>delete</button>

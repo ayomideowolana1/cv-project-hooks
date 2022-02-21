@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectSummary, setSummary } from "./summarySlice";
 
-export default function Summary({ updateSummary }) {
-  const [summary, setSummary] = useState(
-    "Laurem ipsium dolor siti ior blah blah blah blah blab blab blab blab blab blab blab blab blab blab blab blab blab blab"
-  );
+export default function Summary() {
+  const dispatch = useDispatch();
+  const [text,setText ] = useState("")
   const update = () => {
-    updateSummary(summary);
+    dispatch(setSummary(text));
   };
   return (
     <div className="col section">
@@ -14,10 +15,8 @@ export default function Summary({ updateSummary }) {
       <div className="inputs">
         <textarea
           placeholder="Summary"
-          value={summary}
-          onChange={(e) => {
-            setSummary(e.target.value);
-          }}
+          value={text}
+          onChange={(e)=>{setText(e.target.value)}}
         />
       </div>
       <div className="buttons">

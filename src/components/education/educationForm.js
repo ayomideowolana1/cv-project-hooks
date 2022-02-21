@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { updateEducation, removeEducation } from "./educationSlice";
 
-export default function EducationForm({
-  id,
-  updateEducationList,
-  deleteEducation,
-}) {
+export default function EducationForm({ id }) {
+  const dispatch = useDispatch();
   const [school, setSchool] = useState("");
   const [course, setCourse] = useState("");
   const [educationType, setEducationType] = useState("BSC");
@@ -12,7 +11,7 @@ export default function EducationForm({
 
   const update = () => {
     if (school && course && educationType && year) {
-      updateEducationList({ school, course, educationType, year, id });
+      dispatch(updateEducation({ school, course, educationType, year, id }));
     } else {
       alert("Please fill the form correctly");
     }
@@ -22,26 +21,26 @@ export default function EducationForm({
   });
 
   const handleDelete = () => {
-    deleteEducation(id);
+    dispatch(removeEducation(id));
   };
   return (
     <div className="section">
       <div className="inputs">
         <input
           placeholder="School"
-          onChange={(e) => {
+          onChange={e => {
             setSchool(e.target.value);
           }}
         />
         <input
           placeholder="Course"
-          onChange={(e) => {
+          onChange={e => {
             setCourse(e.target.value);
           }}
         />
         <select
           defaultValue="bsc"
-          onChange={(e) => {
+          onChange={e => {
             setEducationType(e.target.value);
           }}
         >
@@ -52,7 +51,7 @@ export default function EducationForm({
         </select>
         <input
           type="date"
-          onChange={(e) => {
+          onChange={e => {
             setYear(e.target.value);
           }}
         />

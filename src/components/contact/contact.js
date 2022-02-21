@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { setContact,selectContact } from "./contactSlice";
+import { useDispatch,useSelector } from "react-redux";
 
-export default function Contact({ setContact }) {
-  const [phone, setPhone] = useState("08031211602");
-  const [email, setEmail] = useState("JohnDoe@email.com");
+export default function Contact() {
+  const dispatch = useDispatch()
+  const contact = useSelector(selectContact);
+  const [phone, setPhone] = useState(contact.phone);
+  const [email, setEmail] = useState(contact.email);
 
   const submit = () => {
-    setContact({ email, phone });
+   dispatch(setContact({ email, phone }));
   };
 
   const handleChange = (e) => {

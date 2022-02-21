@@ -1,19 +1,19 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setNames } from "./namesSlice";
 
-export default function Names({ setNames }) {
-  const [firstname, setFirstname] = useState("John");
-  const [middlenames, setMiddlenames] = useState("Michael");
-  const [lastname, setLastname] = useState("Doe");
+export default function Names() {
+  const dispatch = useDispatch()
+  const [firstName, setFirstname] = useState("John");
+  const [middleNames, setMiddlenames] = useState("Michael");
+  const [lastName, setLastname] = useState("Doe");
 
   const submit = () => {
-    setNames({
-      firstname,
-      middlenames,
-      lastname,
-    });
+    dispatch(setNames({ firstName, middleNames, lastName }));
+    console.log(firstName, middleNames, lastName);
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     switch (e.target.id) {
       case "firstname":
         setFirstname(e.target.value);
@@ -36,18 +36,18 @@ export default function Names({ setNames }) {
           onChange={handleChange}
           id="firstname"
           placeholder="First name"
-          value={firstname}
+          value={firstName}
         />
         <input
           onChange={handleChange}
           id="middlenames"
           placeholder="Middle name(s)"
-          value={middlenames}
+          value={middleNames}
         />
         <input
           onChange={handleChange}
           id="lastname"
-          value={lastname}
+          value={lastName}
           placeholder="Last name"
         />
       </div>

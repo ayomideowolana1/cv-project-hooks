@@ -1,26 +1,16 @@
 import React, { useSate } from "react";
-import Contact from "./contact";
-import Education from "./education";
-import Experiences from "./experience";
-import Names from "./names";
-import Skills from "./skills";
-import Summary from "./summary";
-import Certification from "./cetification";
+import Contact from "./contact/contact";
+import Education from "./education/education";
+import Experiences from "./experiences/experience";
+import Names from "./names/names";
+import Skills from "./skills/skills";
+import Summary from "./summary/summary.js";
+import Certification from "./certification/cetification";
 import Picture from "./picture/picture";
-import Languages from "./languages";
+import Languages from "./languages/languages";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-export default function Form({
-  setNames,
-  setContact,
-  updateSkills,
-  updateExperiences,
-  updateSummary,
-  updateEducation,
-  updateCertification,
-  updatePicture,
-  updateLanguages
-}) {
+export default function Form({ updateExperiences, updateEducation }) {
   return (
     <div className="col-lg-6" id="form">
       <div>
@@ -57,54 +47,18 @@ export default function Form({
             </ul>
           </div>
           <Routes>
-            <Route
-              path="/"
-              element={<Picture updatePicture={updatePicture} />}
-            />
-            <Route path="/names" element={<Names setNames={setNames} />} />
-            <Route
-              path="/contact"
-              element={<Contact setContact={setContact} />}
-            />
-            <Route
-              path="/summary"
-              element={<Summary updateSummary={updateSummary} />}
-            />
-            <Route
-              path="/skills"
-              element={<Skills updateSkills={updateSkills} />}
-            />
-            <Route
-              path="/experiences"
-              element={<Experiences updateExperiences={updateExperiences} />}
-            />
-            <Route
-              path="/education"
-              element={<Education updateEducation={updateEducation} />}
-            />
-            <Route
-              path="/certification"
-              element={
-                <Certification updateCertification={updateCertification} />
-              }
-            />
-            <Route
-              path="/languages"
-              element={<Languages updateLanguages={updateLanguages} />}
-            />
+            <Route path="/" element={<Picture />} />
+            <Route path="/names" element={<Names />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/summary" element={<Summary />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/experiences" element={<Experiences />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/certification" element={<Certification />} />
+            <Route path="/languages" element={<Languages />} />
           </Routes>
         </Router>
       </div>
-      {/* 
-      
-      
-      
-      
-      
-      
-      
-      
-      */}
     </div>
   );
 }

@@ -11,5 +11,5 @@ const pictureSlice = createSlice({
 });
 
 export const { setPicture } = pictureSlice.actions;
-export const selectPicture = state => state.url;
+export const selectPicture = state => state.picture.url;
 export default pictureSlice.reducer;

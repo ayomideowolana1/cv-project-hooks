@@ -4,17 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "./components/form";
 import Nav from "./components/nav";
 import Template from "./components/templates";
+import store from "./store/store";
 
 function App() {
-  const [names, setNames] = useState({
-    firstname: "John",
-    middlenames: "Michael",
-    lastname: "Doe",
-  });
-  const [contact, setContact] = useState({
-    phone: "08031211602",
-    email: "JohnDoe@email.com",
-  });
   const [skills, setSkills] = useState([]);
   const [experiences, setExpeirences] = useState([]);
   const [summary, setSummary] = useState(
@@ -30,7 +22,6 @@ function App() {
     },
   ]);
   const [certification, setCertification] = useState([]);
-  const [picture, setPicture] = useState("");
   const [languages, setLanguages] = useState([]);
 
   const updateSummary = (e) => {
@@ -49,9 +40,6 @@ function App() {
     setCertification(e);
   };
 
-  const updatePicture = (e) => {
-    setPicture(e);
-  };
 
   const updateSkills = (e) => {
     setSkills(e);
@@ -62,7 +50,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(languages);
+    store.getState()
   });
 
   return (
@@ -71,26 +59,15 @@ function App() {
       <div className="container-fluid">
         <div className="row">
           <Form
-            setNames={setNames}
-            setContact={setContact}
-            updateSkills={updateSkills}
             updateExperiences={updateExpeirences}
-            updateSummary={updateSummary}
             updateEducation={updateEducation}
             updateCertification={updateCertification}
-            updatePicture={updatePicture}
-            updateLanguages={updateLanguages}
           />
           <Template
-            picture={picture}
-            names={names}
-            contact={contact}
-            summary={summary}
             skills={skills}
             education={education}
             experiences={experiences}
             certification={certification}
-            languages={languages}
           />
         </div>
       </div>

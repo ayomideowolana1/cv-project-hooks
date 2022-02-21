@@ -3,6 +3,10 @@
   --royal-blue-dark: #17255a;
   --honeydew: #f1faee;
   --persian-green: #17a398;
+  --go-green:#;
+  --oxford-blue: #00072D;
+  --baby-powder: #FEFEFA;
+  --platinum: #eaeaea;
 }
 
 body {
@@ -50,7 +54,7 @@ button.delete:hover{
 .section {
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid;
+  border: 1px solid --platinum;
 }
 
 .section h2 {
@@ -144,4 +148,9 @@ option {
 
 .details .right {
   border-left: 1px solid;
+}
+
+.delete-button{
+  background-color: var(--imperial-red);
+  color: white;
 }
